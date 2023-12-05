@@ -13,6 +13,8 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@tanstack/react-router": "^0.0.1-beta.230",
+    "@tanstack/router-devtools": "^0.0.1-beta.230",
     "pinterpolate": "^0.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
