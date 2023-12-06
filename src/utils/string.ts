@@ -5,7 +5,7 @@
  * interpolate(':name is here.', { name: 'Barbara' })
  * => 'Joe is here.'
  */
-export default function interpolate(str: string, params: Record<string, string | number>) {
+export default function interpolate(str: string, params: Record<string, string | number | undefined | null>) {
   let formattedString = str;
   params = params || {};
 

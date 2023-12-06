@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "prettier:fix": "prettier src/**/*.{ts,tsx} --write",
     "prettier:check": "prettier src/**/*.{ts,tsx} --check",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "vitest"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
@@ -44,6 +45,7 @@
     "tailwindcss": "^3.3.5",
     "typescript": "^5.2.2",
     "vite": "^5.0.0",
-    "vite-tsconfig-paths": "^4.2.1"
+    "vite-tsconfig-paths": "^4.2.1",
+    "vitest": "^1.0.1"
   }
 }
