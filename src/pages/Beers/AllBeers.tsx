@@ -28,13 +28,15 @@ function BeersList({ beers }: BeersListProps) {
         }}
         key={beer.id}
       >
-        <Card
-          title={beer.name}
-          type={beer.tagline}
-          body={beer.description}
-          image={beer.image_url}
-          imageTooltip={ingredientsString}
-        />
+        <div className="h-full">
+          <Card
+            title={beer.name}
+            type={beer.tagline}
+            body={beer.description}
+            image={beer.image_url}
+            imageTooltip={ingredientsString}
+          />
+        </div>
       </Link>
     );
   });

@@ -4,7 +4,7 @@ import { Outlet } from '@tanstack/react-router';
 
 function LandingLayout({ children }: { children?: React.ReactNode }) {
   return (
-    <div className="container mx-auto sm:p-4">
+    <div className="container mx-auto p-4">
       <BaseLayout>
         <Navbar />
 

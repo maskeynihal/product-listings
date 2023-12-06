@@ -18,13 +18,13 @@ function CreateBeerFormModal({ isOpen, setModalClose }: FormModal) {
     description: string;
   };
 
-  const { register, handleSubmit } = useForm<Inputs>();
+  const { register, handleSubmit, reset } = useForm<Inputs>();
 
   const createMyBeerMutation = useCreateMyBeers();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     createMyBeerMutation.mutate({ ...data, imageUrl: appConfig.image.defaultBeerImageUrl });
-
+    reset();
     setModalClose();
   };
 
