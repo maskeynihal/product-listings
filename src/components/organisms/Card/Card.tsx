@@ -1,12 +1,15 @@
+import { Tooltip } from 'react-tooltip';
+
 interface CardProps {
   title: string;
   type: string;
   body: string;
   image: string;
+  imageTooltip: string;
 }
 
 function Card(props: CardProps) {
-  const { title, type, body, image } = props;
+  const { title, type, body, image, imageTooltip } = props;
 
   return (
     <div className="flex flex-row shadow-md p-4 hover:bg-blue-200 hover:cursor-pointer gap-4 w-full">
@@ -15,6 +18,7 @@ function Card(props: CardProps) {
           alt={title}
           src={image}
           className="object-contain w-full"
+          data-tooltip-id={`${title}-image-tooltip`}
         />
       </div>
       <div className="flex justify-center flex-col ">
@@ -23,6 +27,8 @@ function Card(props: CardProps) {
 
         <p className="text-base">{body}</p>
       </div>
+
+      <Tooltip id={`${title}-image-tooltip`}>{imageTooltip}</Tooltip>
     </div>
   );
 }
