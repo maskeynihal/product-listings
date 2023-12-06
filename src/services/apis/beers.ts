@@ -93,11 +93,15 @@ type BeerParams = {
   malt?: string;
   food?: string;
   ids?: string; // Assuming the format is "id|id|..."
+  page: number;
+  per_page: number;
 };
 
-export async function getAllBeers(params?: BeerParams) {
-  console.log(params);
+const DEFAULT_PAGE_SIZE = 10;
+const DEFAULT_PAGE_NUMBER = 1;
+
+export async function getAllBeers(params: BeerParams = { page: DEFAULT_PAGE_NUMBER, per_page: DEFAULT_PAGE_SIZE }) {
   const { data } = await http.get<Array<Beer>>(endpoints.beers.all, { params });
 
-  return data;
+  return { data, meta: { page: params.page, pageSize: params.per_page } };
 }

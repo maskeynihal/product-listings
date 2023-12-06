@@ -3,6 +3,7 @@ import { useBeers } from '../../hooks/query/beers/useBeers';
 import { Beer } from '../../services/apis/beers';
 import { getIngredients } from '../../services/data/beers';
 import BeerSkeletonLoading from './components/BeerSkeletonLoading';
+import { SlArrowDown } from 'react-icons/sl';
 
 interface BeersListProps {
   beers: Array<Beer>;
@@ -27,18 +28,35 @@ function BeersList({ beers }: BeersListProps) {
 }
 
 function AllBeers() {
-  const { data: beers, isLoading } = useBeers();
+  const { data, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } = useBeers({
+    pageSize: 10,
+  });
 
   return (
-    <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-4">
-      {isLoading ? (
-        Array.from(Array(10).keys()).map((value) => <BeerSkeletonLoading key={value} />)
-      ) : beers ? (
-        <BeersList beers={beers} />
-      ) : (
-        <div> No beers available</div>
-      )}
-    </div>
+    <>
+      <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-4">
+        {isLoading ? (
+          Array.from(Array(10).keys()).map((value) => <BeerSkeletonLoading key={value} />)
+        ) : data ? (
+          data.pages.map((group) => {
+            return <BeersList beers={group.data} />;
+          })
+        ) : (
+          <div> No beers available</div>
+        )}
+      </div>
+
+      <div>
+        <button
+          onClick={() => fetchNextPage()}
+          disabled={!hasNextPage || isFetchingNextPage}
+          className="flex items-center"
+        >
+          <SlArrowDown />
+          {isFetchingNextPage ? 'Loading more...' : hasNextPage ? 'Load More' : 'Nothing more to load'}
+        </button>
+      </div>
+    </>
   );
 }
 
