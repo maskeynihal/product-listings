@@ -25,6 +25,7 @@ function BeersList({ beers }: BeersListProps) {
           //@ts-expect-error Type for parms
           beerId: beer.id,
         }}
+        key={beer.id}
       >
         <Card
           title={beer.name}
@@ -50,7 +51,12 @@ function AllBeers() {
           Array.from(Array(10).keys()).map((value) => <SkeletonLoading key={value} />)
         ) : data ? (
           data.pages.map((group) => {
-            return <BeersList beers={group.data} />;
+            return (
+              <BeersList
+                beers={group.data}
+                key={group.meta.page}
+              />
+            );
           })
         ) : (
           <div> No beers available</div>
