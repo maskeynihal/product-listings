@@ -10,7 +10,7 @@ interface UseBeers {
   page?: number;
 }
 
-export function useBeers({ pageSize = DEFAULT_PAGE_SIZE, page = DEFAULT_PAGE_NUMBER }: UseBeers) {
+export function useGetBeers({ pageSize = DEFAULT_PAGE_SIZE, page = DEFAULT_PAGE_NUMBER }: UseBeers) {
   const query = useInfiniteQuery({
     queryKey: beerQueryFactory.all,
     queryFn: (params) => getAllBeers({ per_page: pageSize, page: params.pageParam || page }),

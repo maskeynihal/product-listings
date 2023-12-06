@@ -1,7 +1,7 @@
 import Button from '@/components/atoms/Button/Button';
 import SkeletonLoading from '@/components/atoms/SkeletonLoading/SkeletonLoading';
 import Card from '@/components/organisms/Card/Card';
-import { useBeers } from '@/hooks/query/beers/useBeers';
+import { useGetBeers } from '@/hooks/query/beers/useBeers';
 import { beerDetail } from '@/routes/routes';
 import { Beer } from '@/services/apis/beers';
 import { getIngredients } from '@/services/data/beers';
@@ -43,7 +43,7 @@ function BeersList({ beers }: BeersListProps) {
 }
 
 function AllBeers() {
-  const { data, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } = useBeers({
+  const { data, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } = useGetBeers({
     pageSize: 10,
   });
 
