@@ -10,11 +10,11 @@ function Card(props: CardProps) {
 
   return (
     <div className="flex flex-row shadow-md p-4 hover:bg-blue-200 hover:cursor-pointer gap-4 w-full">
-      <div className="flex w-8 max-w-8 min-w-8">
+      <div className="flex w-24 max-w-24 min-w-24">
         <img
           alt={title}
           src={image}
-          className="object-contain"
+          className="object-contain w-full"
         />
       </div>
       <div className="flex justify-center flex-col ">
