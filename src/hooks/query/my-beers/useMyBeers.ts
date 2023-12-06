@@ -16,7 +16,7 @@ export function useCreateMyBeers() {
   const queryClient = useQueryClient();
 
   const mutation = useMutation({
-    mutationFn: (data: MyBeer) => createMyBeers(data),
+    mutationFn: (data: Omit<MyBeer, 'id'>) => createMyBeers(data),
     onSuccess: (data) =>
       queryClient.setQueryData(queryKeys.all, (currentData: Array<MyBeer>) =>
         currentData ? [...currentData, data] : currentData,

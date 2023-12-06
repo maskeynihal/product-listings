@@ -1,5 +1,5 @@
 import Link from '@/components/atoms/Link/Link';
-import { FormModal } from '@/pages/MyBeers/MyBeers';
+import CreateBeerFormModal from '@/pages/MyBeers/components/CreateBeerFormModal';
 import router from '@/routes/router';
 import { allBeers, myBeers } from '@/routes/routes';
 import { useState } from 'react';
@@ -35,7 +35,7 @@ function Navbar() {
           >
             Add a new beer
           </button>
-          <FormModal
+          <CreateBeerFormModal
             isOpen={isModalOpen}
             setModalClose={() => setIsModalOpen(false)}
           />
