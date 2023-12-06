@@ -5,7 +5,7 @@ interface CardProps {
   type: string;
   body: string;
   image: string;
-  imageTooltip: string;
+  imageTooltip?: string;
 }
 
 function Card(props: CardProps) {
