@@ -2,6 +2,7 @@
 
 interface ImportMetaEnv {
   readonly VITE_BASE_API_URL: string;
+  readonly VITE_DEFAULT_BEER_IMAGE_URL: string;
 }
 
 interface ImportMeta {

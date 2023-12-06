@@ -1,6 +1,6 @@
-import { getMyBeers } from '../../../services/apis/myBeers';
+import { MyBeer, createMyBeers, getMyBeers } from '../../../services/apis/myBeers';
 import queryKeys from './mybeersQueryFactory';
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
 export function useMyBeers() {
   const query = useQuery({
@@ -9,4 +9,18 @@ export function useMyBeers() {
   });
 
   return query;
+}
+
+export function useCreateMyBeers() {
+  const queryClient = useQueryClient();
+
+  const mutation = useMutation({
+    mutationFn: (data: MyBeer) => createMyBeers(data),
+    onSuccess: (data) =>
+      queryClient.setQueryData(queryKeys.all, (currentData: Array<MyBeer>) =>
+        currentData ? [...currentData, data] : currentData,
+      ),
+  });
+
+  return mutation;
 }

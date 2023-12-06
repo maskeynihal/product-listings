@@ -13,6 +13,8 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.17",
+    "@heroicons/react": "^2.0.18",
     "@tanstack/react-query": "^5.12.2",
     "@tanstack/react-router": "^0.0.1-beta.230",
     "@tanstack/router-devtools": "^0.0.1-beta.230",
@@ -21,6 +23,7 @@
     "pinterpolate": "^0.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.48.2",
     "react-icons": "^4.12.0",
     "react-tooltip": "^5.25.0"
   },

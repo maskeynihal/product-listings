@@ -12,3 +12,13 @@ export async function getMyBeers(): Promise<Array<MyBeer>> {
 
   return myBeers ? JSON.parse(myBeers) : [];
 }
+
+export async function createMyBeers(input: MyBeer) {
+  const currentMyBeers = await getMyBeers();
+
+  const updatedMyBeers = [...currentMyBeers, input];
+
+  localStorage.setItem(MY_BEERS_KEY, JSON.stringify(updatedMyBeers));
+
+  return input;
+}
