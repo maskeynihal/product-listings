@@ -1,6 +1,6 @@
-import { getAllBeers } from '../../../services/apis/beers';
+import { getAllBeers, getBeerById } from '../../../services/apis/beers';
 import beerQueryFactory from './beersQueryFactory';
-import { useInfiniteQuery } from '@tanstack/react-query';
+import { useInfiniteQuery, useQuery } from '@tanstack/react-query';
 
 const DEFAULT_PAGE_SIZE = 10;
 const DEFAULT_PAGE_NUMBER = 1;
@@ -18,6 +18,15 @@ export function useBeers({ pageSize = DEFAULT_PAGE_SIZE, page = DEFAULT_PAGE_NUM
     getNextPageParam: (lastPage) => {
       return (lastPage.meta.page || 0) + 1;
     },
+  });
+
+  return query;
+}
+
+export function useGetBeerById(beerId: number | string) {
+  const query = useQuery({
+    queryKey: beerQueryFactory.detail(beerId),
+    queryFn: () => getBeerById(beerId),
   });
 
   return query;

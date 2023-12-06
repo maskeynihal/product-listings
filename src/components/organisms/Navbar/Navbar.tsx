@@ -10,7 +10,7 @@ function Navbar() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="flex justify-between">
+    <div className="flex justify-between mb-4">
       <nav>
         <Link
           to={allBeers.to}

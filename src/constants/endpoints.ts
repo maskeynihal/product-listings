@@ -2,7 +2,7 @@ const endpoints = {
   beers: {
     all: '/beers',
     random: '/beers/random',
-    single: '/beers/:id',
+    detail: '/beers/:id',
   },
 } as const;
 

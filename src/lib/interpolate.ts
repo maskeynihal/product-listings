@@ -1,3 +1,3 @@
 import pinterpolate from 'pinterpolate';
 
-export { pinterpolate as interpolate };
+export default pinterpolate;

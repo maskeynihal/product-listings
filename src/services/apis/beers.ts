@@ -1,5 +1,6 @@
 import endpoints from '../../constants/endpoints';
 import http from '../../lib/http';
+import interpolate from '../../utils/string';
 
 export interface Beer {
   id: number;
@@ -104,4 +105,10 @@ export async function getAllBeers(params: BeerParams = { page: DEFAULT_PAGE_NUMB
   const { data } = await http.get<Array<Beer>>(endpoints.beers.all, { params });
 
   return { data, meta: { page: params.page, pageSize: params.per_page } };
+}
+
+export async function getBeerById(beerId: number | string) {
+  const { data } = await http.get<[Beer]>(interpolate(endpoints.beers.detail, { id: beerId }));
+
+  return data?.length && data[0];
 }

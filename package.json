@@ -20,7 +20,6 @@
     "@tanstack/router-devtools": "^0.0.1-beta.230",
     "axios": "^1.6.2",
     "clsx": "^2.0.0",
-    "pinterpolate": "^0.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.48.2",

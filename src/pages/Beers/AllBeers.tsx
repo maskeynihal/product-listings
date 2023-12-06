@@ -1,8 +1,10 @@
 import Card from '../../components/organisms/Card/Card';
 import { useBeers } from '../../hooks/query/beers/useBeers';
+import { beerDetail } from '../../routes/routes';
 import { Beer } from '../../services/apis/beers';
 import { getIngredients } from '../../services/data/beers';
 import BeerSkeletonLoading from './components/BeerSkeletonLoading';
+import { Link } from '@tanstack/react-router';
 import { SlArrowDown } from 'react-icons/sl';
 
 interface BeersListProps {
@@ -16,13 +18,20 @@ function BeersList({ beers }: BeersListProps) {
     const ingredientsString = `Ingredients: ${ingredients.hops.join(', ')} \n ${ingredients.malt.join(', ')}`;
 
     return (
-      <Card
-        title={beer.name}
-        type={beer.tagline}
-        body={beer.description}
-        image={beer.image_url}
-        imageTooltip={ingredientsString}
-      />
+      <Link
+        to={beerDetail.to}
+        params={{
+          beerId: beer.id,
+        }}
+      >
+        <Card
+          title={beer.name}
+          type={beer.tagline}
+          body={beer.description}
+          image={beer.image_url}
+          imageTooltip={ingredientsString}
+        />
+      </Link>
     );
   });
 }
