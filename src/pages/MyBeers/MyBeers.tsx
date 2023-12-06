@@ -1,7 +1,7 @@
-import Card from '../../components/organisms/Card/Card';
-import appConfig from '../../config/app';
-import { useCreateMyBeers, useMyBeers } from '../../hooks/query/my-beers/useMyBeers';
-import BeerSkeletonLoading from '../Beers/components/BeerSkeletonLoading';
+import SkeletonLoading from '@/components/atoms/SkeletonLoading/SkeletonLoading';
+import Card from '@/components/organisms/Card/Card';
+import appConfig from '@/config/app';
+import { useCreateMyBeers, useMyBeers } from '@/hooks/query/my-beers/useMyBeers';
 import { Dialog, Transition } from '@headlessui/react';
 import { useState } from 'react';
 import { Fragment, useRef } from 'react';
@@ -190,7 +190,7 @@ function MyBeers() {
   return (
     <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-4">
       {isLoading
-        ? Array.from(Array(10).keys()).map((value) => <BeerSkeletonLoading key={value} />)
+        ? Array.from(Array(10).keys()).map((value) => <SkeletonLoading key={value} />)
         : beers?.map((beer) => {
             return (
               <Card

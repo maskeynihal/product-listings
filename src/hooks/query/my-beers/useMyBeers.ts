@@ -1,5 +1,6 @@
-import { MyBeer, createMyBeers, getMyBeers } from '../../../services/apis/myBeers';
 import queryKeys from './mybeersQueryFactory';
+import { createMyBeers, getMyBeers } from '@/services/apis/myBeers';
+import type { MyBeer } from '@/services/apis/myBeers';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
 export function useMyBeers() {

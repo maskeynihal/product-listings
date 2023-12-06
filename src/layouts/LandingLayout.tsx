@@ -1,5 +1,5 @@
-import Navbar from '../components/organisms/Navbar/Navbar';
 import BaseLayout from './BaseLayout';
+import Navbar from '@/components/organisms/Navbar/Navbar';
 import { Outlet } from '@tanstack/react-router';
 
 function LandingLayout({ children }: { children?: React.ReactNode }) {

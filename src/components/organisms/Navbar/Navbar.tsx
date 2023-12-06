@@ -1,7 +1,7 @@
-import { FormModal } from '../../../pages/MyBeers/MyBeers';
-import router from '../../../routes/router';
-import { allBeers, myBeers } from '../../../routes/routes';
-import Link from '../../atoms/Link/Link';
+import Link from '@/components/atoms/Link/Link';
+import { FormModal } from '@/pages/MyBeers/MyBeers';
+import router from '@/routes/router';
+import { allBeers, myBeers } from '@/routes/routes';
 import { useState } from 'react';
 
 function Navbar() {
@@ -13,12 +13,18 @@ function Navbar() {
     <div className="flex justify-between mb-4">
       <nav>
         <Link
+          //@ts-expect-error The route needs to be type safety
           to={allBeers.to}
           className="mr-4"
         >
           All Beers
         </Link>
-        <Link to={myBeers.to}>My Beers</Link>
+        <Link
+          //@ts-expect-error The route needs to be type safety
+          to={myBeers.to}
+        >
+          My Beers
+        </Link>
       </nav>
 
       {currentPath === myBeers.to && (

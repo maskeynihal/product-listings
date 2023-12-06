@@ -1,13 +1,15 @@
-import Card from '../../components/organisms/Card/Card';
-import { useGetBeerById } from '../../hooks/query/beers/useBeers';
-import { getIngredients } from '../../services/data/beers';
-import BeerSkeletonLoading from './components/BeerSkeletonLoading';
+import SkeletonLoading from '@/components/atoms/SkeletonLoading/SkeletonLoading';
+import Card from '@/components/organisms/Card/Card';
+import { useGetBeerById } from '@/hooks/query/beers/useBeers';
+import { getIngredients } from '@/services/data/beers';
 import { useParams } from '@tanstack/react-router';
 import { useMemo } from 'react';
 
 function BeerDetail() {
+  //@ts-expect-error Type for usePrams
   const params = useParams({});
 
+  //@ts-expect-error Type for route params
   const { data: beer, isLoading } = useGetBeerById(params.beerId);
 
   const ingredientsString = useMemo(() => {
@@ -16,21 +18,23 @@ function BeerDetail() {
     return ingredients ? `Ingredients: ${ingredients.hops.join(', ')} \n ${ingredients.malt.join(', ')}` : '';
   }, [beer]);
 
-  return isLoading ? (
-    <BeerSkeletonLoading />
-  ) : beer ? (
-    <Card
-      title={beer.name}
-      type={beer.tagline}
-      body={beer.description}
-      image={beer.image_url}
-      imageTooltip={ingredientsString}
-    />
-  ) : (
-    <div> No beers available</div>
-  );
+  if (isLoading) {
+    return <SkeletonLoading />;
+  }
 
-  return <div>BeerDetail </div>;
+  if (beer) {
+    return (
+      <Card
+        title={beer.name}
+        type={beer.tagline}
+        body={beer.description}
+        image={beer.image_url}
+        imageTooltip={ingredientsString}
+      />
+    );
+  }
+
+  return <div> No beers available</div>;
 }
 
 export default BeerDetail;

@@ -1,4 +1,4 @@
-import { Ingredients } from '../apis/beers';
+import type { Ingredients } from '@/services/apis/beers';
 
 export function getIngredients(ingredients: Ingredients) {
   const hops = ingredients.hops.map((hop) => `${hop.name}`);

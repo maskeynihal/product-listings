@@ -1,5 +1,5 @@
-import client from './config/reactQuery';
-import router from './routes/router';
+import client from '@/config/reactQuery';
+import router from '@/routes/router';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { RouterProvider } from '@tanstack/react-router';
 

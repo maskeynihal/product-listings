@@ -1,9 +1,9 @@
-import Card from '../../components/organisms/Card/Card';
-import { useBeers } from '../../hooks/query/beers/useBeers';
-import { beerDetail } from '../../routes/routes';
-import { Beer } from '../../services/apis/beers';
-import { getIngredients } from '../../services/data/beers';
-import BeerSkeletonLoading from './components/BeerSkeletonLoading';
+import SkeletonLoading from '@/components/atoms/SkeletonLoading/SkeletonLoading';
+import Card from '@/components/organisms/Card/Card';
+import { useBeers } from '@/hooks/query/beers/useBeers';
+import { beerDetail } from '@/routes/routes';
+import { Beer } from '@/services/apis/beers';
+import { getIngredients } from '@/services/data/beers';
 import { Link } from '@tanstack/react-router';
 import { SlArrowDown } from 'react-icons/sl';
 
@@ -19,8 +19,10 @@ function BeersList({ beers }: BeersListProps) {
 
     return (
       <Link
+        //@ts-expect-error Type for routes
         to={beerDetail.to}
         params={{
+          //@ts-expect-error Type for parms
           beerId: beer.id,
         }}
       >
@@ -45,7 +47,7 @@ function AllBeers() {
     <>
       <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-4">
         {isLoading ? (
-          Array.from(Array(10).keys()).map((value) => <BeerSkeletonLoading key={value} />)
+          Array.from(Array(10).keys()).map((value) => <SkeletonLoading key={value} />)
         ) : data ? (
           data.pages.map((group) => {
             return <BeersList beers={group.data} />;

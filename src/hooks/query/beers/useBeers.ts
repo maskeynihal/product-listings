@@ -1,5 +1,5 @@
-import { getAllBeers, getBeerById } from '../../../services/apis/beers';
 import beerQueryFactory from './beersQueryFactory';
+import { getAllBeers, getBeerById } from '@/services/apis/beers';
 import { useInfiniteQuery, useQuery } from '@tanstack/react-query';
 
 const DEFAULT_PAGE_SIZE = 10;

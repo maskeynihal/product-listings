@@ -1,6 +1,6 @@
-import endpoints from '../../constants/endpoints';
-import http from '../../lib/http';
-import interpolate from '../../utils/string';
+import endpoints from '@/constants/endpoints';
+import http from '@/lib/http';
+import interpolate from '@/utils/string';
 
 export interface Beer {
   id: number;

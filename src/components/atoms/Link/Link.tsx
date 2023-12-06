@@ -3,16 +3,17 @@ import clsx from 'clsx';
 
 interface LinkProps extends LinkOptions {
   children: React.ReactNode;
+  className: string;
 }
 
 function Link(props: LinkProps) {
   return (
     <RouterLink
-      className={clsx('hover:font-bold')}
       activeProps={{
         className: 'font-bold',
       }}
       {...props}
+      className={clsx('hover:font-bold', props.className)}
     >
       {props.children}
     </RouterLink>
