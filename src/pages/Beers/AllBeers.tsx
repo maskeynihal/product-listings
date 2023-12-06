@@ -1,3 +1,4 @@
+import Button from '@/components/atoms/Button/Button';
 import SkeletonLoading from '@/components/atoms/SkeletonLoading/SkeletonLoading';
 import Card from '@/components/organisms/Card/Card';
 import { useBeers } from '@/hooks/query/beers/useBeers';
@@ -63,15 +64,16 @@ function AllBeers() {
         )}
       </div>
 
-      <div>
-        <button
+      <div className="flex w-full justify-center py-2">
+        <Button
           onClick={() => fetchNextPage()}
           disabled={!hasNextPage || isFetchingNextPage}
-          className="flex items-center"
+          className="flex items-center gap-2"
+          variant="text"
         >
           <SlArrowDown />
           {isFetchingNextPage ? 'Loading more...' : hasNextPage ? 'Load More' : 'Nothing more to load'}
-        </button>
+        </Button>
       </div>
     </>
   );

@@ -1,4 +1,5 @@
 import CreateBeerFormModal from './components/CreateBeerFormModal';
+import Button from '@/components/atoms/Button/Button';
 import SkeletonLoading from '@/components/atoms/SkeletonLoading/SkeletonLoading';
 import Card from '@/components/organisms/Card/Card';
 import { useMyBeers } from '@/hooks/query/my-beers/useMyBeers';
@@ -16,13 +17,13 @@ function MyBeers() {
           <div> Nothing to see yet </div>
 
           <div>
-            <button
-              className="text-blue-700 hover:underline"
+            <Button
+              variant="text"
               onClick={() => setIsModalOpen(true)}
             >
               Click here
-            </button>
-            <span className="pl-2">to add your first beer</span>
+            </Button>
+            <span className="pl-1">to add your first beer</span>
           </div>
         </div>
 

@@ -1,3 +1,4 @@
+import Button from '@/components/atoms/Button/Button';
 import Link from '@/components/atoms/Link/Link';
 import CreateBeerFormModal from '@/pages/MyBeers/components/CreateBeerFormModal';
 import router from '@/routes/router';
@@ -29,12 +30,7 @@ function Navbar() {
 
       {currentPath === myBeers.to && (
         <div className="">
-          <button
-            className="rounded bg-blue-400 hover:bg-blue-600 text-white px-4 py-2"
-            onClick={() => setIsModalOpen(true)}
-          >
-            Add a new beer
-          </button>
+          <Button onClick={() => setIsModalOpen(true)}>Add a new beer</Button>
           <CreateBeerFormModal
             isOpen={isModalOpen}
             setModalClose={() => setIsModalOpen(false)}

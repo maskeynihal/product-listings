@@ -1,3 +1,4 @@
+import Button from '@/components/atoms/Button/Button';
 import appConfig from '@/config/app';
 import { useCreateMyBeers } from '@/hooks/query/my-beers/useMyBeers';
 import { Dialog, Transition } from '@headlessui/react';
@@ -124,25 +125,28 @@ function CreateBeerFormModal({ isOpen, setModalClose }: FormModal) {
                               {...register('description', { required: true })}
                             ></textarea>
                           </div>
-                          <button
-                            type="submit"
-                            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center "
-                          >
-                            Submit
-                          </button>
+
+                          <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                            <Button
+                              type="submit"
+                              className="mt-3 md:ml-3 inline-flex w-full justify-center  px-3 py-2 sm:mt-0 sm:w-auto"
+                            >
+                              Add Beer
+                            </Button>
+                            <Button
+                              type="button"
+                              variant="outlined"
+                              color="danger"
+                              className="mt-3 inline-flex w-full justify-center  bg-white px-3 py-2 sm:mt-0 sm:w-auto"
+                              onClick={setModalClose}
+                              ref={cancelButtonRef}
+                            >
+                              Cancel
+                            </Button>
+                          </div>
                         </form>
                       </div>
                     </div>
-                  </div>
-                  <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                    <button
-                      type="button"
-                      className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-                      onClick={setModalClose}
-                      ref={cancelButtonRef}
-                    >
-                      Cancel
-                    </button>
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
