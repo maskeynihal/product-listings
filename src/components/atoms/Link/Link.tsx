@@ -1,5 +1,5 @@
+import clsx from '@/lib/clsx';
 import { LinkOptions, Link as RouterLink } from '@tanstack/react-router';
-import clsx from 'clsx';
 
 interface LinkProps extends LinkOptions {
   children: React.ReactNode;

@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import clsx from '@/lib/clsx';
 import React, { ForwardedRef } from 'react';
 
 export type ButtonColor = 'primary' | 'secondary' | 'danger';
